@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>windowstu5</title>
+</head>
+<body>
+    <center>
+        <form action="" name="myform">
+            <h1>Data Entry Form</h1>
+            <strong>Student ID : &nbsp&nbsp&nbsp</strong>
+            <input type="text" name="id" ><br><br>
+            <strong>Name : &nbsp&nbsp&nbsp</strong>
+            <input type="text" name="name" ><br><br>
+            <strong>Course : &nbsp&nbsp&nbsp</strong>
+            <input type="text" name="course" ><br><br>
+            <strong>Year/Section : &nbsp&nbsp&nbsp</strong>
+            <input type="text" name="year" ><br><br>
+
+            <button type="button" onclick="data()">Submit</button>
+
+        </form>
+    </center>
+
+    <script>
+        function data(){
+            let id = document.myform.id.value ;
+            let name = document.myform.name.value ;
+            let course = document.myform.course.value ;
+            let year = document.myform.year.value ;
+
+            if ( id == ""){
+                alert("Student ID must be filled out")
+            }else if ( name == ""){
+                alert("Name must be filled out")
+            }else if ( course == ""){
+                alert("Course must be filled out")
+            }else if ( year == ""){
+                alert("Year/Section must be filled out")
+            }else{
+                let mw = window.open("","abc","width = 500 ,height =600")
+                let output;
+                output = "<h1>Data Entry Form</h1>";
+                output += "Student ID : &nbsp&nbsp" + id + "<br><br>";
+                output += "Name : &nbsp&nbsp" + name + "<br><br>";
+                output += "Course : &nbsp&nbsp" + course + "<br><br>";
+                output += "Year/Section : &nbsp&nbsp" + year + "<br><br>";
+
+                mw.document.write(output);
+
+
+
+            }
+        }
+
+
+
+
+
+    </script>
+</body>
+</html>

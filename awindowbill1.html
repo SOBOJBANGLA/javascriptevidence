@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bill</title>
+</head>
+<body>
+    <center>
+        <form action="" name="myform">
+            <h1>Billing Information</h1>
+            <fieldset style="width: fit-content;">
+            <strong>First Name : &nbsp &nbsp &nbsp &nbsp</strong>
+            <input type="text" name="fname" ><br><br>
+            <strong>Last Name : &nbsp &nbsp &nbsp &nbsp</strong>
+            <input type="text" name="lname" ><br><br>
+            <strong>Gender : &nbsp &nbsp &nbsp &nbsp</strong>
+            <input type="radio" name="gender" value="Male">Male
+            <input type="radio" name="gender" value="Female">Female <br><br>
+            <strong>Language : &nbsp &nbsp &nbsp &nbsp</strong>
+            <input type="checkbox" name="arabic" value="Arabic" class="lang">Arabic
+            <input type="checkbox" name="english" value="English" class="lang">English
+            <input type="checkbox" name="bangla" value="Bangla" class="lang">Bangla <br><br>
+            <strong>Email : &nbsp &nbsp &nbsp &nbsp</strong>
+            <input type="text" name="email" ><br><br>
+            <strong>Address : &nbsp &nbsp &nbsp &nbsp</strong>
+            <textarea name="address" rows = ""></textarea><br><br>
+            <strong>State  : &nbsp&nbsp &nbsp &nbsp &nbsp</strong>
+            <select name="state" >
+                <option value="hidden">Choose State</option>
+                <option value="Dhaka">Dhaka</option>
+                <option value="Cumilla">Cumilla</option>
+                <option value="Noakhali">Noakhali</option>
+            </select><br><br>
+            <strong>Zip : &nbsp &nbsp &nbsp &nbsp</strong>
+            <input type="text" name="zip" ><br><br>
+            <strong>Credit Card Type : &nbsp &nbsp &nbsp &nbsp</strong>
+            <select name="card" >
+                <option value="hidden">Choose Credit Card</option>
+                <option value="Mastercard">Mastercard</option>
+                <option value="Visa">Visa</option>
+                <option value="Discover">Discover</option>
+            </select><br><br>
+
+            <button type="button" onclick="bill()">Submit</button>
+        </fieldset>
+        </form>
+    </center>
+
+    <script>
+        function bill(){
+            let name1 = document.myform.fname.value ;
+            let name2 = document.myform.lname.value ;
+            let gender = document.myform.gender.value ;
+           // let lang = document.myform.lang.value ;
+           let lang = document.getElementsByClassName("lang");
+           let langs = ""
+           for(let i= 0 ; i<lang.length;i++){
+            if(lang[i].checked){
+                langs += lang[i].value + ","
+            }
+           }
+            let address = document.myform.address.value ;
+            let state = document.myform.state.value ;
+            let email = document.myform.email.value ;
+            let zip = document.myform.zip.value ;
+            let card = document.myform.card.value ;
+
+           // let pattern = /[A-z0-9]+@[A-z]+\.[A-z]/
+           // let result = email.search(pattern);
+
+          /*  if(name1 == ""){
+                alert("First name must be entered")
+            }else if(name2 == ""){
+                alert("Last name must be entered")
+            }else if(gender == ""){
+                alert("Gender must be select")
+            }else if(lang == ""){
+                alert("Language must be select")
+            }else if(address == ""){
+                alert("Address must be entered")
+            }else if(state == ""){
+                alert("State must be select")
+            }else if(result == -1){
+                alert("Email not valid")
+            }else if(zip == ""){
+                alert("Zip must be entered")
+            }else if(card == ""){
+                alert("Credit card type must be select ")
+            }else{*/
+                let mywindow = window.open("","abc","width=500 , height = 600")
+                let output;
+                output = "<h1>Billing Information</h1>";
+                output += "First Name : &nbsp" +name1 + "<br><br>";
+                output += "Last Name : &nbsp" +name2 + "<br><br>";
+                output += "Gender : &nbsp" +gender + "<br><br>";
+                output += "Languages : &nbsp" +langs + "<br><br>";
+                output += "Email : &nbsp" +email + "<br><br>";
+                output += "Address : &nbsp" +address + "<br><br>";
+                output += "State : &nbsp" +state + "<br><br>";
+                output += "Zip : &nbsp" +zip + "<br><br>";
+                output += "Credit Card Type : &nbsp" +card + "<br><br>";
+
+                mywindow.document.write(output);
+           // }
+        }
+    </script>
+    
+    
+</body>
+</html>
